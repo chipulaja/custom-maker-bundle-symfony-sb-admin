@@ -1,0 +1,28 @@
+{
+    "description": "Custom Symfony Maker helps you create empty commands, controllers, form classes, tests and more so you can forget about writing boilerplate code.",
+    "name": "chipulaja/custom-maker-bundle-symfony-sb-admin",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "keywords": ["generator", "code generator", "scaffolding", "scaffold", "dev"],
+    "authors": [
+        {
+            "name": "syaiful"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.0",
+        "symfony/maker-bundle": "^1.50"
+    }
+    "autoload": {
+        "psr-4": { "Symfony\\Bundle\\MakerBundle\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Symfony\\Bundle\\MakerBundle\\Tests\\": "tests/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0-dev"
+        }
+    }
+}
