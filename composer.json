@@ -15,7 +15,10 @@
         "symfony/maker-bundle": "^1.50"
     },
     "autoload": {
-        "psr-4": { "Chipulaja\\Bundle\\MakerBundle\\": "src/" }
+        "psr-4": { 
+            "Chipulaja\\Bundle\\MakerBundle\\": "src/chipulaja-maker-bundle/",
+            "Symfony\\Bundle\\MakerBundle\\": "src/symfony-maker-bundle/"
+        }
     },
     "autoload-dev": {
         "psr-4": { "Chipulaja\\Bundle\\MakerBundle\\Tests\\": "tests/" }
