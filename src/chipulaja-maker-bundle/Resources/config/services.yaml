@@ -1,0 +1,4 @@
+twig:
+  extensions:
+    - custom_routing_extension:
+        class: Chipulaja\Bundle\MakerBundle\Twig\RoutingExtension
