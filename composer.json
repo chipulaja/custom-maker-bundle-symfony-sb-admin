@@ -16,6 +16,7 @@
     "autoload": {
         "psr-4": { 
             "Chipulaja\\Bundle\\MakerBundle\\": "src/chipulaja-maker-bundle/",
+            "Symfony\\Bridge\\Twig\\": "src/symfony-bridge-twig/",
             "Symfony\\Bundle\\MakerBundle\\": "src/symfony-maker-bundle/"
         }
     },
