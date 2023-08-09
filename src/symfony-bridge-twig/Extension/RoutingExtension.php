@@ -46,7 +46,7 @@ final class RoutingExtension extends AbstractExtension
             return $this->generator->generate($name, $parameters, $relative ? UrlGeneratorInterface::RELATIVE_PATH : UrlGeneratorInterface::ABSOLUTE_PATH);
         } catch (\Exception $e) {
             if ($name == 'dashboard') {
-                return "";
+                return "/";
             }
             return $e;
         }
