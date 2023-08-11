@@ -157,7 +157,6 @@ class Generator
         if (!str_starts_with($className, $fullNamespacePrefix)) {
             $fullNamespacePrefix = $this->fileManager->getNamespacePrefixForClass($className);
         }
-
         return new ClassNameDetails($className, $fullNamespacePrefix, $suffix);
     }
 
@@ -199,6 +198,18 @@ class Generator
     public function getRootNamespace(): string
     {
         return $this->namespacePrefix;
+    }
+
+    public function generateReader(string $readerClassName, string $readerTemplatePath, array $parameters = []): string
+    {
+        return $this->generateClass(
+            $readerClassName,
+            $readerTemplatePath,
+            $parameters +
+            [
+                'generator' => $this->templateComponentGenerator,
+            ]
+        );
     }
 
     public function generateController(string $controllerClassName, string $controllerTemplatePath, array $parameters = []): string
@@ -258,7 +269,7 @@ class Generator
             $templatePath = __DIR__.'/Resources/skeleton/'.$templateName;
 
             if (!file_exists($templatePath)) {
-                $templatePath = __DIR__."/vendor/symfony/maker-bundle/src/Resource/skeleton/".$templateName;
+                $templatePath = __DIR__."/../../../../symfony/maker-bundle/src/Resources/skeleton/".$templateName;
             }
 
             if (!file_exists($templatePath)) {
