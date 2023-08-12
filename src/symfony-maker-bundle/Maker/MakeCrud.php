@@ -190,6 +190,12 @@ final class MakeCrud extends AbstractMaker
             $readerClassDetails->getFullName(),
         ]);
 
+        $readerUseStatements = clone $useStatements;
+        $readerUseStatements->addUseStatement([
+            "Knp\Component\Pager\PaginatorInterface",
+            "App\Entity\User"]
+        );
+
         if (EntityManagerInterface::class !== $repositoryClassName) {
             $useStatements->addUseStatement(EntityManagerInterface::class);
         }
@@ -199,7 +205,7 @@ final class MakeCrud extends AbstractMaker
             $readerClassDetails->getFullName(),
             'crud/service/Reader.tpl.php',
             array_merge([
-                    'use_statements' => $useStatements,
+                    'use_statements' => $readerUseStatements,
                     'entity_class_name' => $entityClassDetails->getShortName(),
                     'form_class_name' => $formClassDetails->getShortName(),
                     'form_filter_class_name' => $formFilterClassDetails->getShortName(),

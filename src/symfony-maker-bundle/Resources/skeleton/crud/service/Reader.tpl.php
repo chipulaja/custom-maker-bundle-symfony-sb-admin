@@ -3,8 +3,6 @@
 namespace <?= $namespace ?>;
 
 <?= $use_statements; ?>
-use Knp\Component\Pager\PaginatorInterface;
-use App\Entity\User;
 
 class Reader
 {
