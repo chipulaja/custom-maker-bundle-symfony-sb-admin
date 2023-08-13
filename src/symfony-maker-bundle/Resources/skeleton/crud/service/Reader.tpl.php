@@ -13,7 +13,7 @@ class Reader
         EntityManagerInterface $em,
         PaginatorInterface $paginator
     ) {
-        $this->cobabcRepository = $cobabcRepository;
+        $this-><?= $entity_var_singular ?>Repository = $<?= $entity_var_singular ?>Repository;
         $this->em = $em;
         $this->paginator = $paginator;
     }
@@ -26,7 +26,7 @@ class Reader
             ->orderBy('<?= $entity_var_singular ?>.id', 'ASC');
 
         $search = strtolower(@$dataFilter['search']);
-        $queryBuilder->where('LOWER(cobabc.name) like :name')
+        $queryBuilder->where('LOWER(<?= $entity_var_singular ?>.name) like :name')
         ->setParameter('name', "%$search%");
 
         if ($user instanceof User) {
@@ -44,11 +44,3 @@ class Reader
         return $<?= $entity_var_singular ?>;
     }
 }
-
-/*
-// use App\Repository\<?= $entity_class_name ?>Repository;
-// use App\Entity\<?= $entity_class_name ?>;
-// use Doctrine\ORM\EntityManagerInterface;
-// use Knp\Component\Pager\PaginatorInterface;
-// use App\Entity\User;
-*/

@@ -64,7 +64,7 @@ final class MakeCrud extends AbstractMaker
 
     public static function getCommandName(): string
     {
-        return 'make:crud';
+        return 'chipul-make:crud';
     }
 
     public static function getCommandDescription(): string
@@ -191,10 +191,9 @@ final class MakeCrud extends AbstractMaker
         ]);
 
         $readerUseStatements = clone $useStatements;
-        $readerUseStatements->addUseStatement([
-            "Knp\Component\Pager\PaginatorInterface",
-            "App\Entity\User"]
-        );
+        $readerUseStatements->addUseStatement("Doctrine\ORM\EntityManagerInterface");
+        $readerUseStatements->addUseStatement("Knp\Component\Pager\PaginatorInterface");
+        $readerUseStatements->addUseStatement("App\Entity\User");
 
         if (EntityManagerInterface::class !== $repositoryClassName) {
             $useStatements->addUseStatement(EntityManagerInterface::class);
